@@ -17,6 +17,23 @@ curl -fsSL https://raw.githubusercontent.com/Nabwinsaud/mantra-packages/main/ins
 On macOS it installs through the Mantra Homebrew tap. On Debian and Ubuntu it downloads the
 matching release package, verifies it against the release `SHA256SUMS`, and installs it with APT.
 
+## Debian and Ubuntu APT repository
+
+```sh
+curl -fsSL \
+  https://raw.githubusercontent.com/Nabwinsaud/mantra-packages/apt-repository/mantra-archive-keyring.pgp \
+  | sudo tee /usr/share/keyrings/mantra-archive-keyring.pgp >/dev/null
+
+echo "deb [signed-by=/usr/share/keyrings/mantra-archive-keyring.pgp] https://raw.githubusercontent.com/Nabwinsaud/mantra-packages/apt-repository stable main" \
+  | sudo tee /etc/apt/sources.list.d/mantra.list >/dev/null
+
+sudo apt update
+sudo apt install mantra
+```
+
+The repository metadata and packages are synchronized hourly from Mantra's latest GitHub release.
+APT verifies the repository signature using the dedicated key above before accepting updates.
+
 ## One-time owner setup
 
 The workflow is intentionally unable to sign anything until the repository owner supplies a
