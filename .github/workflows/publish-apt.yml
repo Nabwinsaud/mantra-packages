@@ -1,0 +1,94 @@
+name: Publish signed APT repository
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+      APT_GPG_PRIVATE_KEY: ${{ secrets.APT_GPG_PRIVATE_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Require signing key
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$APT_GPG_PRIVATE_KEY" ]]; then
+            echo "Set the APT_GPG_PRIVATE_KEY repository secret before publishing." >&2
+            exit 1
+          fi
+
+      - name: Install repository tooling
+        run: sudo apt-get update && sudo apt-get install --yes reprepro
+
+      - name: Download and verify latest Debian packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="$(gh api repos/Nabwinsaud/mantra/releases/latest --jq .tag_name)"
+          mkdir -p downloads
+          gh release download "$tag" \
+            --repo Nabwinsaud/mantra \
+            --pattern "mantra_*.deb" \
+            --pattern SHA256SUMS \
+            --dir downloads
+          (
+            cd downloads
+            sha256sum --check SHA256SUMS --ignore-missing
+            test "$(find . -maxdepth 1 -name '*.deb' | wc -l)" -eq 2
+          )
+
+      - name: Import dedicated repository signing key
+        id: signing
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s' "$APT_GPG_PRIVATE_KEY" | gpg --batch --import
+          fingerprint="$(gpg --batch --with-colons --list-secret-keys | awk -F: '$1 == "fpr" { print $10; exit }')"
+          test -n "$fingerprint"
+          echo "fingerprint=$fingerprint" >> "$GITHUB_OUTPUT"
+
+      - name: Generate signed repository
+        shell: bash
+        env:
+          FINGERPRINT: ${{ steps.signing.outputs.fingerprint }}
+        run: |
+          set -euo pipefail
+          mkdir -p site/conf
+          sed "s/@FINGERPRINT@/$FINGERPRINT/" apt/distributions > site/conf/distributions
+          for package in downloads/*.deb; do
+            reprepro --basedir site includedeb stable "$package"
+          done
+          gpg --batch --export "$FINGERPRINT" > site/mantra-archive-keyring.pgp
+          install -m 0755 install.sh site/install.sh
+          rm -rf site/conf site/db
+
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    needs: build
+    steps:
+      - name: Deploy signed repository
+        id: deployment
+        uses: actions/deploy-pages@v5

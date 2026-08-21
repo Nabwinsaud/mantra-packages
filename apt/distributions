@@ -1,0 +1,9 @@
+Origin: Mantra
+Label: Mantra
+Codename: stable
+Suite: stable
+Architectures: amd64 arm64
+Components: main
+Description: Mantra PostgreSQL terminal IDE packages
+SignWith: @FINGERPRINT@
+
