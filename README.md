@@ -4,14 +4,14 @@ Automation and public metadata for installing [Mantra](https://github.com/Nabwin
 
 This repository publishes:
 
-- a signed APT repository at `https://nabwinsaud.github.io/mantra-packages/`
-- the checksum-verifying installer at `https://nabwinsaud.github.io/mantra-packages/install.sh`
+- a signed APT repository on the `apt-repository` branch
+- a checksum-verifying installer from the repository's `main` branch
 - shared release metadata consumed by future Arch/AUR automation
 
 Once Pages has been deployed, the checksum-verifying direct installer is available with:
 
 ```sh
-curl -fsSL https://nabwinsaud.github.io/mantra-packages/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/Nabwinsaud/mantra-packages/main/install.sh | sh
 ```
 
 On macOS it installs through the Mantra Homebrew tap. On Debian and Ubuntu it downloads the
