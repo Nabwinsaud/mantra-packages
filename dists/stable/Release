@@ -1,0 +1,29 @@
+Origin: Mantra
+Label: Mantra
+Suite: stable
+Codename: stable
+Date: Sat, 05 Sep 2026 16:51:01 UTC
+Architectures: amd64 arm64
+Components: main
+Description: Mantra PostgreSQL terminal IDE packages
+MD5Sum:
+ 3974e9a67f83285b6a07b772546be489 652 main/binary-amd64/Packages
+ 8364dd4586a441f317fd7ee12d2c7fc0 454 main/binary-amd64/Packages.gz
+ 8421dd8a9d71eb1c1cfd190019d0f4a6 134 main/binary-amd64/Release
+ c7e14039fd16db9f88f1a26ff38554dc 652 main/binary-arm64/Packages
+ 1c898be34eaffb0b3f464003a55e4301 457 main/binary-arm64/Packages.gz
+ dc904404d78070561763c18b1fab30c5 134 main/binary-arm64/Release
+SHA1:
+ 4c2960cd22aaec519fb4113cd5b80669638bdd0b 652 main/binary-amd64/Packages
+ 0656b0ac2acbd81c5b7d70c0530c508a9fe42df7 454 main/binary-amd64/Packages.gz
+ 5270ed15ce58fa807c56e5621793a2e8fe6d367b 134 main/binary-amd64/Release
+ 5ebf88b08536e0c5a92fabfe6c6dba7e3d413674 652 main/binary-arm64/Packages
+ 3e16098ada0a6b7b081a19351b2fc56d8070865c 457 main/binary-arm64/Packages.gz
+ 7351dd39604c8528f470e84bed24ea1ba9b57559 134 main/binary-arm64/Release
+SHA256:
+ 2d58b052d46a1d5850546bf2c06fa4e62699c08a14a97ce0233f39a8aea10a97 652 main/binary-amd64/Packages
+ 17374c2862c36ac010327ca1892225e87c533cdad5641822e0188c5019db8894 454 main/binary-amd64/Packages.gz
+ 6af608ed02cee6467a1d3b0629bdce94db0528045054b0add47b1ca98ad4f17a 134 main/binary-amd64/Release
+ 5570b81ebfbfc19c6a49fd646b5a9dda6aedd4c0fd6488c997d8087b951ae95d 652 main/binary-arm64/Packages
+ fc66eaaae2ed8e778cca905c83fe050f7b971f69132421c16a541c027d47ed7f 457 main/binary-arm64/Packages.gz
+ 059204b1143559320e294482c82c1652aed70f892a206f812652f4c20ea15136 134 main/binary-arm64/Release

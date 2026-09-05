@@ -1,0 +1,19 @@
+Package: mantra
+Version: 0.1.1-1
+Architecture: arm64
+Homepage: https://github.com/Nabwinsaud/mantra
+Maintainer: Nabwin Saud
+Installed-Size: 5217
+Depends: libc6 (>= 2.39)
+Priority: optional
+Section: database
+Filename: pool/main/m/mantra/mantra_0.1.1-1_arm64.deb
+Size: 1763556
+SHA256: 40f97d995bf6a0cb0228b9dae8a4ca0d5385ee8ed50a83f6c592afd0f1751f7d
+SHA1: f30a6425c082716cb0f48f8eb47e627ce658f648
+MD5sum: 18043447a0e37821b8ae6840ceba9f37
+Description: A keyboard-first PostgreSQL terminal IDE
+ Mantra is a keyboard-first PostgreSQL terminal IDE with a database explorer,
+ modal SQL editor, schema-aware completion, query history, and result
+ navigation.
+
