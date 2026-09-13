@@ -1,0 +1,6 @@
+Archive: stable
+Component: main
+Origin: Mantra
+Label: Mantra
+Architecture: amd64
+Description: Mantra PostgreSQL terminal IDE packages
