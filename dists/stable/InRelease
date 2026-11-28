@@ -1,0 +1,39 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: Mantra
+Label: Mantra
+Suite: stable
+Codename: stable
+Date: Sat, 28 Nov 2026 13:05:00 UTC
+Architectures: amd64 arm64
+Components: main
+Description: Mantra PostgreSQL terminal IDE packages
+MD5Sum:
+ a2ad2b1338bb133a011de0f40bf89f37 653 main/binary-amd64/Packages
+ 8d728a887365833b5efd9c8ac382ecec 457 main/binary-amd64/Packages.gz
+ 8421dd8a9d71eb1c1cfd190019d0f4a6 134 main/binary-amd64/Release
+ 38e317e2bad7a91d735736d313a3d8e2 653 main/binary-arm64/Packages
+ 2eab6392dbe419764e9afc4ccc2554f3 454 main/binary-arm64/Packages.gz
+ dc904404d78070561763c18b1fab30c5 134 main/binary-arm64/Release
+SHA1:
+ a170b87f7f36a70be936fe47ae8d1aca535a96a1 653 main/binary-amd64/Packages
+ 3cd679e7aa8f22c2ca5f52ec40bd3fb08b7bf9ce 457 main/binary-amd64/Packages.gz
+ 5270ed15ce58fa807c56e5621793a2e8fe6d367b 134 main/binary-amd64/Release
+ 27bdfb898a63f2c61d9392a1f849656df09f87c3 653 main/binary-arm64/Packages
+ ba65564794ee450e3de8f8d31b8cfdbba123254e 454 main/binary-arm64/Packages.gz
+ 7351dd39604c8528f470e84bed24ea1ba9b57559 134 main/binary-arm64/Release
+SHA256:
+ 84b7573b53e1c42f8c08624dc0d7668d3cf3a5488ef9ea6ca9b2d73a75c7b3ee 653 main/binary-amd64/Packages
+ fe630b24ce5402b34a538e834c98a5c56b8b30a1b8e1d373c3bcd44549322017 457 main/binary-amd64/Packages.gz
+ 6af608ed02cee6467a1d3b0629bdce94db0528045054b0add47b1ca98ad4f17a 134 main/binary-amd64/Release
+ e0cca88a8a852669c6fb793caced4b52b59306d96c4c02779c1a9a6a5ae412cb 653 main/binary-arm64/Packages
+ 86b2302f8b8702b691235697079734ebb8f94ece3c4edfed6de512910e657242 454 main/binary-arm64/Packages.gz
+ 059204b1143559320e294482c82c1652aed70f892a206f812652f4c20ea15136 134 main/binary-arm64/Release
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQTZRCXlzqaZynAmW1TXnIZlc5avPAUCawrRfAAKCRDXnIZlc5av
+PHl7APwKPGA9U6QGeD5vxAIeDzgRCLgKba2bPrNRM+8elTNeSAEArbbP9/IxHkaG
+9MeyAnJE/mi3qAFXp+1w5FNoVYVrvg0=
+=Nxxp
+-----END PGP SIGNATURE-----
